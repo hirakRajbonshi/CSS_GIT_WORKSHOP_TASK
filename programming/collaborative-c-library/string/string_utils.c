@@ -91,7 +91,7 @@ int count_number_of_consonants(const char* str) {
 
     for (int i = 0; str[i] != '\0'; ++i) {
         char c = str[i];
-        c = tolower(c);  // Convert character to lowercase for uniform comparison
+        c = tolower(c);  
 
         if ((c >= 'a' && c <= 'z') && !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')) {
             count++;
@@ -105,16 +105,16 @@ int count_number_of_words(const char* str) {
     if (str == NULL) return 0;
 
     int count = 0;
-    int in_word = 0;  // Flag to track whether we are in a word
+    int in_word = 0; 
 
     for (int i = 0; str[i] != '\0'; ++i) {
         if (isalpha(str[i])) {
             if (!in_word) {
-                count++;  // A new word has started
-                in_word = 1;  // We're in a word now
+                count++; 
+                in_word = 1;  
             }
         } else {
-            in_word = 0;  // We reached a non-alphabetic character, not in a word anymore
+            in_word = 0; 
         }
     }
 
@@ -125,13 +125,11 @@ int count_number_of_sentences(const char* str) {
     if (str == NULL) return 0;
 
     int count = 0;
-    int in_sentence = 0;  // Flag to track whether we're in a sentence
+    int in_sentence = 0;  
 
     for (int i = 0; str[i] != '\0'; ++i) {
-        // If we encounter a sentence-ending punctuation mark
         if (str[i] == '.' || str[i] == '!' || str[i] == '?') {
-            count++;  // Increment sentence count
-            // Skip over any spaces following the punctuation mark
+            count++; 
             while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n') {
                 i++;
             }
@@ -464,11 +462,11 @@ int main() {
     else{printf("NO, it isn't a isogram\n");}
     
 
-
-    char ip_address[20];        //valid IP address
+    char ip_address[20];    //valid IP address
     printf("Enter an IP address: ");
     fgets(ip_address, sizeof(ip_address), stdin);
-    ip_address[strcspn(ip_address, "\n")] = '\0'; 
+    ip_address[strcspn(ip_address, "\n")] = '\0';  
+    while(getchar() != '\n');  
 
     if (is_valid_ip_address(ip_address)) {
         printf("The IP address is valid.\n");
