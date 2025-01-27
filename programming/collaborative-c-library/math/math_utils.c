@@ -1,13 +1,15 @@
 #include "math_utils.h"
-#include<math.h>
+#include <stdio.h>
+#include <math.h>
 
-int factorial(int n) {
-    if (n == 0) {
-        return 1;
-    } else {
-        return n * factorial(n - 1);
-    }
+int lcm(int a, int b) {
+    return (a * b) / gcd(a, b);
 }
+
+double power(double base, int exp) {
+    return pow(base, exp);
+}
+
 
 double square_root(double n) {
     double x = n;
@@ -47,4 +49,19 @@ double nth_root(double n, int root) {
     }
     
     return y;
+}
+
+
+int main() {
+            int a, b;
+            printf("Enter two numbers to find their LCM: ");
+            scanf("%d %d", &a, &b);
+            printf("LCM of %d and %d is: %d\n", a, b, lcm(a, b));
+
+            double base;
+            int exp;
+            printf("Enter base and exponent for power calculation: ");
+            scanf("%lf %d", &base, &exp);
+            printf("%.2f raised to the power of %d is: %.2f\n", base, exp, power(base, exp));
+            return 0;
 }
