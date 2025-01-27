@@ -4,12 +4,10 @@
 #include "math_utils.h"
 #include<stdio.h>
 #define PI 3.14159
-#include<math.h>
+#include <math.h>
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
-#include "math_utils.h"
-#include <math.h>
 
 int main(){
     printf("The area of circle is %f.\n", area_circle(1));
