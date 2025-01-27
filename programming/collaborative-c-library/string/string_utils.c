@@ -91,7 +91,7 @@ int count_number_of_consonants(const char* str) {
 
     for (int i = 0; str[i] != '\0'; ++i) {
         char c = str[i];
-        c = tolower(c);  // Convert character to lowercase for uniform comparison
+        c = tolower(c);  
 
         if ((c >= 'a' && c <= 'z') && !(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')) {
             count++;
@@ -105,16 +105,16 @@ int count_number_of_words(const char* str) {
     if (str == NULL) return 0;
 
     int count = 0;
-    int in_word = 0;  // Flag to track whether we are in a word
+    int in_word = 0; 
 
     for (int i = 0; str[i] != '\0'; ++i) {
         if (isalpha(str[i])) {
             if (!in_word) {
-                count++;  // A new word has started
-                in_word = 1;  // We're in a word now
+                count++; 
+                in_word = 1;  
             }
         } else {
-            in_word = 0;  // We reached a non-alphabetic character, not in a word anymore
+            in_word = 0; 
         }
     }
 
@@ -125,13 +125,11 @@ int count_number_of_sentences(const char* str) {
     if (str == NULL) return 0;
 
     int count = 0;
-    int in_sentence = 0;  // Flag to track whether we're in a sentence
+    int in_sentence = 0;  
 
     for (int i = 0; str[i] != '\0'; ++i) {
-        // If we encounter a sentence-ending punctuation mark
         if (str[i] == '.' || str[i] == '!' || str[i] == '?') {
-            count++;  // Increment sentence count
-            // Skip over any spaces following the punctuation mark
+            count++; 
             while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n') {
                 i++;
             }
@@ -153,6 +151,79 @@ int count_number_of_occurrences(const char* str, const char* sub) {
     }
 
     return count;
+}
+//Palindrome
+int is_palindrome(const char* str) {
+    if (str == NULL) {
+        return 0;
+    }
+    int left = 0;
+    int right = strlen(str) - 1;
+    while (left < right) {
+        while (left < right && !isalnum((unsigned char)str[left])) {
+            left++;
+        }
+        while (left < right && !isalnum((unsigned char)str[right])) {
+            right--;
+        }
+        if (tolower((unsigned char)str[left]) != tolower((unsigned char)str[right])) {
+            return 0;
+        }
+        left++;
+        right--;
+    }
+    return 1;
+}
+//Anagram
+int is_anagram(const char* str1, const char* str2){
+    if (strlen(str1) != strlen(str2)) {
+        return 0; 
+    }
+    int freq[256] = {0}; 
+    for (int i = 0; str1[i] != '\0'; i++) {
+        freq[(unsigned char)tolower(str1[i])]++;
+    }
+    for (int i = 0; str2[i] != '\0'; i++) {
+        freq[(unsigned char)tolower(str2[i])]--;
+    }
+    for (int i = 0; i < 256; i++) {
+        if (freq[i] != 0) {
+            return 0;
+        }
+    }
+    return 1; 
+}
+//Pangram
+int is_pangram(const char* str){
+    int alphabet[26] = {0}; 
+    int index;
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (isalpha(str[i])) {
+            index = tolower(str[i]) - 'a'; 
+            alphabet[index] = 1; 
+        }
+    }
+    for (int i = 0; i < 26; i++) {
+        if (alphabet[i] == 0) {
+            return 0; 
+    }
+    return 1;
+}
+}
+//Isogram
+int is_isogram(const char* str){
+    int alphabet[26] = {0}; 
+    int index;
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (isalpha(str[i])) { 
+            index = tolower(str[i]) - 'a'; 
+            if (alphabet[index] == 1) {
+                return 0; 
+            }
+            alphabet[index] = 1; 
+        }
+    }
+    return 1;
 }
 
 int is_valid_ip_address(const char* str) {
@@ -186,9 +257,64 @@ int is_valid_ip_address(const char* str) {
 
     return dot_count == 3;
 }
-
+//Valid Date
+int is_valid_date(const char* str){
+    if (str == NULL || strlen(str) != 10) {
+        return 0; }
+    if (!isdigit(str[0]) || !isdigit(str[1]) || str[2] != '-' || 
+        !isdigit(str[3]) || !isdigit(str[4]) || str[5] != '-' ||
+        !isdigit(str[6]) || !isdigit(str[7]) || !isdigit(str[8]) || !isdigit(str[9])) {
+        return 0;
+    }
+    int day = (str[0] - '0') * 10 + (str[1] - '0');
+    int month = (str[3] - '0') * 10 + (str[4] - '0');
+    int year = (str[6] - '0') * 1000 + (str[7] - '0') * 100 + (str[8] - '0') * 10 + (str[9] - '0');
+    if (month < 1 || month > 12) {
+        return 0; 
+    }
+    if (day < 1 || day > 31) {
+        return 0; }
+    int days_in_month[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+        days_in_month[1] = 29; 
+    }
+    if (day > days_in_month[month - 1]) {
+        return 0; 
+    }
+    return 1;
+}
+//Valid Email
+int is_valid_email(const char* str) {
+    if (str == NULL || *str == '\0') {
+        return 0;
+   }
+    int at_count = 0;
+    const char *at_pos = NULL;
+    for (int i = 0; str[i] != '\0'; i++) {
+        char c = str[i];
+        if (c == '@') {
+            at_count++;
+            at_pos = &str[i];
+        } 
+        else if (!isalnum(c) && c != '-' && c != '_' && c != '.') {
+            return 0;
+        }
+    }
+    if (at_count != 1) {
+        return 0;
+    }
+    if (at_pos == str) {
+        return 0;
+    }
+    if (strchr(at_pos + 1, '.') == NULL) {
+        return 0;
+    }
+    return 1;
+}
 
 int main() {
+   
+
 
     char str1[100];
     printf("Enter a string to reverse: ");  //reverse string
@@ -298,19 +424,77 @@ int main() {
     int occurrences = count_number_of_occurrences(str9, sub9);
     printf("Number of occurrences: %d\n", occurrences);
 
+    //palindrome
+    printf("Give one word for palindrome: ");
+    char word[100];
+    scanf("%s", word);
+    if (is_palindrome(word)==1)
+    {
+        printf("YES, it is a palindrome\n");
+    }
+    else{printf("NO, it isn't a palindrome\n");}
+    //anagram
+    printf("Give two words for anagram: ");
+    char word1[100], word2[100];
+    scanf("%s%s", word1, word2);
+    if (is_anagram(word1, word2)==1)
+    {
+        printf("YES, it is a anagram\n");
+    }
+    else{printf("NO, it isn't a anagram\n");}
+    //pangram
+    printf("Give one word for pangram: ");
+    char word3[200];
+    scanf("%s", word3);
+    if (is_pangram(word3)==1)
+    {
+        printf("YES, it is a pangram\n");
+    }
+    else{printf("NO, it isn't a pangram\n");}
+    //isogram
+    printf("Give one word for isogram: ");
+    char word4[100];
+    scanf("%s", word4);
+    if (is_isogram(word4)==1)
+    {
+        printf("YES, it is a isogram\n");
+    }
+    else{printf("NO, it isn't a isogram\n");}
+    
 
-
-    char ip_address[20];        //valid IP address
+    char ip_address[20];    //valid IP address
     printf("Enter an IP address: ");
     fgets(ip_address, sizeof(ip_address), stdin);
-    ip_address[strcspn(ip_address, "\n")] = '\0'; 
+    ip_address[strcspn(ip_address, "\n")] = '\0';  
+    while(getchar() != '\n');  
 
     if (is_valid_ip_address(ip_address)) {
         printf("The IP address is valid.\n");
     } else {
         printf("The IP address is not valid.\n");
     }
+    
+    //valid email
+    printf("Enter an email: ");
+    char email[100];
+    scanf("%s", email);
+    if (is_valid_email(email) == 1) {
+        printf("\"%s\" is a valid email.\n", email);
+    } 
+    else {
+        printf("\"%s\" is NOT a valid email.\n", email);
+    }
 
+    //valid date
+    printf("Enter a date seperated by - : ");
+    char test_date[100];
+    scanf("%s", test_date);
+    if (is_valid_date(test_date)) {
+            printf("\"%s\" is a valid date.\n", test_date);
+    } 
+    else {
+            printf("\"%s\" is NOT a valid date.\n", test_date);
+        }
 
     return 0;
 }
