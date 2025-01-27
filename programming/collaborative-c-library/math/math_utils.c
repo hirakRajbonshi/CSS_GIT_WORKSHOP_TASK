@@ -39,12 +39,12 @@ double nth_root(double n, int root) {
         return -1;
     }
     
-    double x = n;
+    double y = n;
     double epsilon = 0.000001;
     
-    while (fabs(pow(x, root) - n) > epsilon) {
-        x = ((root - 1) * x + n / pow(x, root - 1)) / root;
+    while (fabs(pow(y, root) - n) > epsilon) {
+        y = ((root - 1) * y + n / pow(y, root - 1)) / root;
     }
     
-    return x;
+    return y;
 }
