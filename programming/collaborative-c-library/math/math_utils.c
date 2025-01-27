@@ -58,24 +58,24 @@ int main() {
     printf("Cube root of %.2f is: %.6f\n", num, cbrt_result);
     
     double base;
-    int n;
+    int n1;
 
     
     printf("Enter the number: ");
     scanf("%lf", &base);
 
     printf("Enter the value of n (root): ");
-    scanf("%d", &n);
+    scanf("%d", &n1);
 
     
-    if (n <= 0) {
+    if (n1 <= 0) {
         printf("The value of n must be greater than 0.\n");
-    } else if (base < 0 && n % 2 == 0) {
+    } else if (base < 0 && n1 % 2 == 0) {
         printf("For even roots, the base must be non-negative.\n");
     } else {
        
-        double result = nth_root(base, n);
-        printf("The %.d-th root of %.2lf is %.5lf\n", n, base, result);
+        double result = nth_root(base, n1);
+        printf("The %.d-th root of %.2lf is %.5lf\n", n1, base, result);
     }
 
     return 0;
