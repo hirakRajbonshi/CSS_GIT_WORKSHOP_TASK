@@ -31,4 +31,5 @@ int main() {
             printf("Enter two numbers to find their GCD: ");
             scanf("%d %d", &a, &b);
             printf("GCD of %d and %d is: %d\n", a, b, gcd(a, b));
+            return 0;
 }
