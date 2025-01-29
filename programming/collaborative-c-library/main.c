@@ -3,7 +3,6 @@
 
 
 int main() {
-<<<<<<< HEAD
     const char* test1 = "madam";
     printf("%s is %s palindrome\n", test1, is_palindrome(test1) ? "a" : "not a");
     const char* test2 = "listen";
@@ -20,7 +19,6 @@ int main() {
      const char* test8 = "31-04-2023";
      printf("\"%s\" is %s a valid date\n", test8, is_valid_date(test8) ? "" : "not");
 
-=======
     int n;
     printf("Factorial of 5: %d\n", factorial(5));
     printf("The gcd of 24 and 96 is: %d\n", gcd(24,96));
@@ -34,6 +32,5 @@ int main() {
     printf("The area of circle with radius 7.2 is %lf\n",area_circle(7.2));
     printf("The area of  triangle with co-ordinates (1,0),(3.3,-8.4),(0,5) is: %lf\n",triangle_area(1.0,0.0,3.3,-8.4,0,5));
     printf("The perimeter of triangle with co-ordinates (1,0),(3.3,-8.4),(0,5) is: %lf\n",perimeter_triangle(1.0,0.0,3.3,-8.4,0,5));
->>>>>>> 91c0263d940fe9bbe5ff27e98d34093344b6ecda
     return 0;
 }
