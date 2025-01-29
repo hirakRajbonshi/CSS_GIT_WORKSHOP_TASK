@@ -2,9 +2,6 @@
 #include<math.h>
 #define PI 3.14159
 
-<<<<<<< HEAD
-
-=======
 double area_circle(double radius) {
     return PI * radius * radius; 
 }
@@ -22,4 +19,3 @@ double perimeter_triangle(double x1, double y1, double x2, double y2, double x3,
     double side3 = distance(x3, y3, x1, y1);
     return side1 + side2 + side3;
 }
->>>>>>> 91c0263d940fe9bbe5ff27e98d34093344b6ecda
