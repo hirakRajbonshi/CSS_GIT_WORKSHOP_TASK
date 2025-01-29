@@ -110,19 +110,7 @@ int is_valid_ip_address(const char* str) {
 
     return (dots == 4); 
 }
-int is_valid_email(const char* str) {
-    if (str == NULL) return 0;
 
-    const char* at = strchr(str, '@'); 
-    if (!at || at == str || strchr(at + 1, '@')) 
-        return 0; 
-
-    const char* dot = strrchr(at, '.'); 
-    if (!dot || dot == at + 1 || dot[1] == '\0') 
-        return 0; 
-
-    return 1; 
-}
 int is_valid_email(const char* str) {
     if (str == NULL) return 0;
 
