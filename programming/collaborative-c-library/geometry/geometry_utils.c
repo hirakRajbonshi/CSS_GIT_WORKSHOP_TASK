@@ -1,5 +1,6 @@
 #include "geometry_utils.h"
 #include<math.h>
+#include <stdio.h>
 #define PI 3.14159
 
 double area_circle(double radius) {
