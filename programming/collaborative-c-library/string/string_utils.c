@@ -8,6 +8,7 @@ int is_palindrome(const char* str) {
     int left = 0;
     int right = strlen(str) - 1;
     
+    
     while (left < right) {
         if (str[left] != str[right])
             return 0; 
