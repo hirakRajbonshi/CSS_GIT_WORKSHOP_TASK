@@ -4,6 +4,17 @@
 
 int main() {
 
+    printf("Area of rectangle having length 8 and breadth 6 is:%lf\n",area_rectangle(8.0,6.0));
+    printf("Perimeter of circle having radius 14 is:%lf\n",perimeter_circle(14.0) );
+    printf("Perimeter of rectangle having length 10 and breadth 9 is:%lf\n",perimeter_rectangle(10,9));
+    printf("Volume of cylinder having radius 7 and height 14 is:%lf\n",volume_cylinder(7,14));
+    printf("Volume of sphere having radius 28 is:%lf\n",volume_sphere(28));
+    printf("Volume of cube having side 17 is:%lf\n",volume_cube(17));
+    printf("Volume of cone having radius 11 and height 23 is:%lf\n",volume_cone(11,13));
+    printf("Volume of pyramid having side 15 and height 27 is:%lf\n",volume_pyramid(15,27));
+    printf("Surface area of cylinder having radius 8 and height 19 is:%lf\n",surface_area_cylinder(8,19));
+
+
    printf("Hello reversed is %s\n",reverse_string("Hello"));
     printf("shivam in uppercase is %s\n",to_uppercase("shivam"));
     printf("SHIVAM in lower case is %s\n",to_lowercase("SHIVAM"));
@@ -45,6 +56,7 @@ int main() {
     printf("The area of circle with radius 7.2 is %lf\n",area_circle(7.2));
     printf("The area of  triangle with co-ordinates (1,0),(3.3,-8.4),(0,5) is: %lf\n",triangle_area(1.0,0.0,3.3,-8.4,0,5));
     printf("The perimeter of triangle with co-ordinates (1,0),(3.3,-8.4),(0,5) is: %lf\n",perimeter_triangle(1.0,0.0,3.3,-8.4,0,5));
+    printf("enter the value of n : ");
      scanf("%d",&n);
     printf("The %dth root of 46 is %lf",n,nth_root(46.0,n));
     return 0;
