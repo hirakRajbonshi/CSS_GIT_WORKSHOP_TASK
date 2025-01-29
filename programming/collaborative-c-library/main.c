@@ -2,8 +2,7 @@
 #include <stdio.h>
 
 
-int main() {
-    printf("Factorial of 5: %d\n", factorial(5));
+int main() {g
     const char* test1 = "madam";
     printf("%s is %s palindrome\n", test1, is_palindrome(test1) ? "a" : "not a");
     const char* test2 = "listen";
