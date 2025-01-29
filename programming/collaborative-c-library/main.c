@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 
-int main() {g
+int main() {
     const char* test1 = "madam";
     printf("%s is %s palindrome\n", test1, is_palindrome(test1) ? "a" : "not a");
     const char* test2 = "listen";
