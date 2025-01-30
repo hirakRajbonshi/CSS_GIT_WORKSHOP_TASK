@@ -2,11 +2,12 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #eef2f3;
+  background-image: linear-gradient(to right, rgb(217, 217, 158), rgb(188, 234, 239));
+  font-size: 20px;
 }
 
 header {
-  background-color: #ff5733;
+  background-color: #a62001;
   padding: 1rem;
   text-align: center;
   color: white;
@@ -20,4 +21,38 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  height: 6%;
+}
+
+img {
+  margin-top: 10px;
+  margin-left: 300px;
+  margin-bottom: 10px;
+  border: 4px solid black;
+}
+
+#curry {
+  margin-left: 50px;
+}
+
+#biryani {
+  margin-left: 50px;
+}
+
+h4 {
+  text-align: center;
+  color: maroon;
+  font-size: 17px;
+}
+
+#top {
+  text-align: center;
+  text-transform: capitalize;
+  text-shadow: 2px 2px rgb(179, 18, 144);
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 35px;
+  font-family: "Times New Roman", Times, serif;
 }
