@@ -13,6 +13,7 @@ int main() {
     scanf("%d",&xyz);
     if(xyz==2)
     {
+    printf("The area of circle with radius 7.2 is %lf\n",area_circle(7.2));
     printf("Area of rectangle having length 8 and breadth 6 is:%lf\n",area_rectangle(8.0,6.0));
     printf("Perimeter of circle having radius 14 is:%lf\n",perimeter_circle(14.0) );
     printf("Perimeter of rectangle having length 10 and breadth 9 is:%lf\n",perimeter_rectangle(10,9));
@@ -33,7 +34,8 @@ int main() {
     printf("Midpoint's y coordinate of line joining (0,0) and (1,1): %.2f\n",midpoint_y(0,1) );
     printf("Centroid of triangle formed by (0,0) ,(1,2)and (2,0) x coordinate : %.2f\n", centroid_x(0,1,2));
     printf("Centroid of triangle formed by (0,0) ,(1,2)and (2,0) y coordinate : %.2f\n", centroid_y(0,2,0));
-     
+    printf("The area of  triangle with co-ordinates (1,0),(3.3,-8.4),(0,5) is: %lf\n",triangle_area(1.0,0.0,3.3,-8.4,0,5));
+    printf("The perimeter of triangle with co-ordinates (1,0),(3.3,-8.4),(0,5) is: %lf\n",perimeter_triangle(1.0,0.0,3.3,-8.4,0,5));
     }
 
   if(xyz==3)
@@ -49,7 +51,7 @@ int main() {
     printf("The number of consonant in university is %d\n",count_number_of_consonants("university"));
     printf("The number of words in 'Education is a powerful weapon' is:  %d\n",count_number_of_words("Education is a powerful weapon"));
     printf("The number of sentence in 'He walked.She did too!' is: %d\n",count_number_of_sentences("He walked.She walked too!"));
-    printf("The no. of occurances of 'the' in the statement 'She went to the store and bought the book on the shelf' is: %d",count_number_of_occurrences("She went to the store and bought the book on the shelf","the"));
+    printf("The no. of occurances of 'the' in the statement 'She went to the store and bought the book on the shelf' is: %d\n",count_number_of_occurrences("She went to the store and bought the book on the shelf","the"));
    
     const char* test1 = "madam";
     printf("%s is %s palindrome\n", test1, is_palindrome(test1) ? "a" : "not a");
@@ -79,12 +81,7 @@ int main() {
     printf("The square root of 31 is: %lf\n",square_root(31.0));
     printf("The cube root of 36 is: %lf\n",cube_root(36.0));
     printf("Enter the value of n to find the nth root of 46: ");
-
-    printf("The area of circle with radius 7.2 is %lf\n",area_circle(7.2));
-    printf("The area of  triangle with co-ordinates (1,0),(3.3,-8.4),(0,5) is: %lf\n",triangle_area(1.0,0.0,3.3,-8.4,0,5));
-    printf("The perimeter of triangle with co-ordinates (1,0),(3.3,-8.4),(0,5) is: %lf\n",perimeter_triangle(1.0,0.0,3.3,-8.4,0,5));
-    printf("enter the value of n : ");
-     scanf("%d",&n);
+    scanf("%d",&n);
     printf("The %dth root of 46 is %lf",n,nth_root(46.0,n));
      
   }
