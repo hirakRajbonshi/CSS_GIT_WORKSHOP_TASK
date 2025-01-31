@@ -12,6 +12,12 @@ header {
   color: white;
 }
 
+#Lunch{
+  font-size: 72px;
+  font-family:monospace;
+  font-style:normal;
+}
+
 footer {
   background-color: #222;
   color: #fff;
